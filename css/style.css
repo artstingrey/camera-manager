@@ -250,6 +250,9 @@ header, footer {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .camera-settings-list .camera-settings-item:first-child {
@@ -280,13 +283,16 @@ header, footer {
 .left-content-section {
   width: 320px;
   background: #F7F7F7;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  position: relative;
+}
+
+.left-content-section .add-camera {
+  position: absolute;
+  width: 202px;
+  bottom: 140px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .app-content-section {
@@ -295,18 +301,9 @@ header, footer {
 }
 
 /* camera list section */
-.cams-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .cams-list .scroll-container {
   overflow: auto;
+  max-height: 780px;
 }
 
 .cams-list .cams-list-title {
@@ -398,7 +395,7 @@ header, footer {
 
 .thumbnails-list .thumbnails-list-item {
   padding: 7px 7.5px 7px 7.5px;
-  width: 215px;
+  width: 200px;
   margin-bottom: 20px;
   cursor: pointer;
 }
@@ -511,6 +508,88 @@ header, footer {
 }
 
 /* End camera form */
+/* flip switch */
+.flipswitch {
+  position: relative;
+  width: 64px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.flipswitch input[type=checkbox] {
+  display: none;
+}
+
+.flipswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #BDBDBD;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.flipswitch-inner {
+  width: 200%;
+  margin-left: -100%;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.flipswitch-inner:before, .flipswitch-inner:after {
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  font-size: 12px;
+  line-height: 30px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.flipswitch-inner:before {
+  content: "on";
+  padding-left: 10px;
+  background-color: #EBEBEB;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.flipswitch-inner:after {
+  content: "off";
+  padding-right: 10px;
+  background-color: #FFFFFF;
+  color: #999999;
+  text-align: right;
+}
+
+.flipswitch-switch {
+  width: 20px;
+  height: 20px;
+  margin: 6px;
+  background: #DEDEDE;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 30px;
+  -webkit-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
+}
+
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+  margin-left: 0;
+}
+
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+  right: 0;
+  background: #BDBDBD;
+}
+
+/* End flip switch */
 .left-content-section-bottom-container {
   padding: 20px 0 20px 0;
   display: -webkit-box;
@@ -584,10 +663,13 @@ header, footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .thumbnails-section .thumbnails-path-container {
-  width: 190px;
+  width: 150px;
 }
 
 .thumbnails-section .path-list {
@@ -619,6 +701,7 @@ header, footer {
 
 .thumbnails-section .thumbnails-list {
   margin: 34px 0 0 15px;
+  width: 800px;
 }
 
 .recorded-clips-section .recorded-clips-title-container {
@@ -631,5 +714,9 @@ header, footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.recorded-clips-section .thumbnails-list {
+  margin-top: 12px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -96,9 +96,9 @@
 				</div>
 			</div>
 			
-			<div class="left-content-section-bottom-container">
-				<div class="button button-add">Add camera<span class="add-icon"></span></div>
-			</div>
+			
+			<div class="button button-add add-camera">Add camera<span class="add-icon"></span></div>
+			
 		</section>
 		<section class="app-content-section">
 			<div class="main-camera-info-container">
@@ -115,15 +115,39 @@
 					<div class="camera-settings-list">
 						<div class="camera-settings-item">
 							<div class="camera-settings-title">Rebroadcast</div>
-							<div class="camera-setting-status"></div>
+							<div class="camera-setting-status">
+								<div class="flipswitch">
+									<input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs" checked>
+									<label class="flipswitch-label" for="fs">
+										<div class="flipswitch-inner"></div>
+										<div class="flipswitch-switch"></div>
+									</label>
+								</div>								
+							</div>
 						</div>
 						<div class="camera-settings-item">
 							<div class="camera-settings-title">Thumbnails</div>
-							<div class="camera-setting-status"></div>
+							<div class="camera-setting-status">
+								<div class="flipswitch">
+									<input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs2">
+									<label class="flipswitch-label" for="fs2">
+										<div class="flipswitch-inner"></div>
+										<div class="flipswitch-switch"></div>
+									</label>
+								</div>	
+							</div>
 						</div>
 						<div class="camera-settings-item">
 							<div class="camera-settings-title">Recording</div>
-							<div class="camera-setting-status"></div>
+							<div class="camera-setting-status">
+								<div class="flipswitch">
+									<input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs3" checked>
+									<label class="flipswitch-label" for="fs3">
+										<div class="flipswitch-inner"></div>
+										<div class="flipswitch-switch"></div>
+									</label>
+								</div>	
+							</div>
 						</div>
 					</div>
 				</div>	
@@ -211,7 +235,7 @@
 
 			<div class="recorded-clips-section">
 				<div class="recorded-clips-title-container">
-					<h2>Recorded clips</h2>
+					<h3>Recorded clips</h3>
 					<div class="button button-add button-small">Create clip<span class="add-icon"></span></div>
 				</div>
 				<div class="thumbnails-list">
