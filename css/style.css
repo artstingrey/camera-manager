@@ -1,0 +1,635 @@
+/* global box-sizing */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #999999;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  font-size: 36px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 20px;
+  color: #6A6A6A;
+  margin: 0;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.56);
+  margin-bottom: 2px;
+}
+
+input[type="text"], input[type="email"] {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 10px 16px 10px 16px;
+  border: 1px solid #BDBDBD;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #999999;
+}
+
+.display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.none {
+  display: none;
+}
+
+/* clear */
+.clear:before,
+.clear:after {
+  content: ' ';
+  display: block;
+}
+
+.clear:after {
+  clear: both;
+}
+
+.clear {
+  *zoom: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+input:focus {
+  outline: 0;
+}
+
+header, footer {
+  display: block;
+}
+
+.delimiter-line {
+  height: 3px;
+  background: #DADADA;
+  margin: 28px 0 12px 0;
+}
+
+/* buttons */
+.tool-button {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.tool-button-edit {
+  background: url(../img/edit.svg) no-repeat center;
+}
+
+.tool-button-delete {
+  background: url(../img/delete.svg) no-repeat center;
+}
+
+.button {
+  border: 1px solid #999999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 17px 0 17px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #999999;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.button.button-add {
+  padding-right: 50px;
+}
+
+.button .add-icon {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  right: 17px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.button .add-icon:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  border-radius: 6px;
+  background: #999999;
+}
+
+.button .add-icon:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 6px;
+  background: #999999;
+}
+
+.button.button-grey {
+  border-color: #DEDEDE;
+  background: #EBEBEB;
+}
+
+.button.button-small {
+  height: 30px;
+  padding: 0 9px 0 9px;
+}
+
+.button.button-small.button-add {
+  padding-right: 28px;
+}
+
+.button.button-small .add-icon {
+  right: 9px;
+  width: 14px;
+  height: 14px;
+}
+
+/* End buttons */
+/* Camera options */
+.camera-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.camera-options .camera-status {
+  position: relative;
+  padding: 0 32px 0 0;
+}
+
+.camera-options .camera-status::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.camera-options .camera-status.camera-status-on::after {
+  background: #00BF2A;
+}
+
+.camera-options .camera-status.camera-status-off::after {
+  background: #BF0000;
+}
+
+/* End camera options */
+/* camera settings list */
+.camera-settings-list .camera-settings-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.camera-settings-list .camera-settings-item:first-child {
+  margin-top: 0;
+}
+
+.camera-settings-list .camera-settings-title {
+  font-size: 22px;
+  line-height: 20px;
+  color: #6A6A6A;
+}
+
+.camera-settings-list .camera-setting-status {
+  margin-left: 20px;
+}
+
+/* End camera settings list */
+.app-container {
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+}
+
+.left-content-section {
+  width: 320px;
+  background: #F7F7F7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.app-content-section {
+  width: 1060px;
+  padding: 0 30px 0 30px;
+}
+
+/* camera list section */
+.cams-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cams-list .scroll-container {
+  overflow: auto;
+}
+
+.cams-list .cams-list-title {
+  text-align: center;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 14px 0 16px 0;
+}
+
+.cams-list .cams-list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 15px 12px 18px 16px;
+  border-top: 1px solid #EBEBEB;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.cams-list .cams-list-item.active {
+  background: #ffffff;
+  border-left: 1px solid #EBEBEB;
+  border-right: 1px solid #EBEBEB;
+}
+
+.cams-list .camera-preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 61px;
+  background-color: #EBEBEB;
+  border-radius: 4px;
+  margin: 5px 14px 0 0;
+}
+
+.cams-list .camera-preview img {
+  max-height: 61px;
+}
+
+.cams-list .camera-info-container {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.cams-list .camera-info-container .camera-title {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.cams-list .camera-options {
+  margin: 6px 0 0 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cams-list .camera-tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cams-list .camera-tools .tool-button {
+  margin: 0 0 0 18px;
+}
+
+.cams-list .camera-tools .tool-button:first-child {
+  margin-left: 0;
+}
+
+/* End camera list section */
+/* thumbnails list */
+.thumbnails-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.thumbnails-list .thumbnails-list-item {
+  padding: 7px 7.5px 7px 7.5px;
+  width: 215px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.thumbnails-list .thumbnails-list-item .item-preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 112.5px;
+  background: #EBEBEB;
+  border-radius: 4px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.thumbnails-list .thumbnails-list-item .item-preview img {
+  min-width: 52.5px;
+}
+
+.thumbnails-list .thumbnails-list-item .info {
+  margin: 4.5px 0 0 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* End thumbnails list */
+/* camera form */
+.camera-form {
+  width: 550px;
+  margin: 15px auto 0 auto;
+}
+
+.camera-form .field-item {
+  margin-bottom: 20px;
+}
+
+.camera-form form {
+  margin: 25px 0 0 0;
+}
+
+.camera-form form.create-clip-form {
+  margin-top: 32px;
+}
+
+.camera-form .camera-form-three-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.camera-form .camera-form-three-inputs .field-item {
+  margin-left: 14px;
+}
+
+.camera-form .camera-form-three-inputs .field-item:first-child {
+  margin-left: 0;
+}
+
+.camera-form .camera-settings-list {
+  margin-top: 20px;
+}
+
+.camera-form .camera-form-buttons {
+  margin-top: 68px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.camera-form .camera-form-buttons .button {
+  margin-left: 24px;
+  width: 140px;
+}
+
+.camera-form .camera-form-buttons .button:first-child {
+  margin-left: 0;
+}
+
+.camera-form .camera-form-two-columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.camera-form .camera-form-two-columns .camera-form-column {
+  margin-left: 22px;
+}
+
+.camera-form .camera-form-two-columns .camera-form-column:first-child {
+  margin-left: 0;
+}
+
+.camera-form .title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.56);
+  margin: 0 0 17px 0;
+}
+
+/* End camera form */
+.left-content-section-bottom-container {
+  padding: 20px 0 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.left-content-section-bottom-container .button {
+  width: 202px;
+}
+
+.main-camera-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 27px 0 0 0;
+}
+
+.main-camera-info-container .main-camera-preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 420px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-camera-info-container .camera-info {
+  margin: 0 0 0 33px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.main-camera-info-container .camera-info .camera-title {
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 36px;
+  line-height: 24px;
+}
+
+.main-camera-info-container .camera-info .camera-target {
+  margin: 10px 0 0 0;
+}
+
+.main-camera-info-container .camera-info .camera-options {
+  margin: 16px 0 0 0;
+}
+
+.main-camera-info-container .camera-info .camera-settings-list {
+  margin-top: 28px;
+}
+
+.thumbnails-section {
+  margin: 20px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.thumbnails-section .thumbnails-path-container {
+  width: 190px;
+}
+
+.thumbnails-section .path-list {
+  margin: 20px 0 0 0;
+}
+
+.thumbnails-section .path-list .path-item {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  padding: 0 0 0 35px;
+  cursor: pointer;
+}
+
+.thumbnails-section .path-list .path-item:before {
+  content: '';
+  width: 22px;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../img/folder.svg) no-repeat left top;
+}
+
+.thumbnails-section .path-list .path-item:first-child {
+  margin-top: 0;
+}
+
+.thumbnails-section .thumbnails-list {
+  margin: 34px 0 0 15px;
+}
+
+.recorded-clips-section .recorded-clips-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */
