@@ -27,6 +27,7 @@ h2 {
   font-size: 36px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.56);
+  font-weight: normal;
 }
 
 h3 {
@@ -92,6 +93,13 @@ img {
   vertical-align: bottom;
 }
 
+.fit-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
 input:focus {
   outline: 0;
 }
@@ -121,6 +129,12 @@ header, footer {
   background: url(../img/delete.svg) no-repeat center;
 }
 
+.tool-button-delete-svg svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .button {
   border: 1px solid #999999;
   display: -webkit-box;
@@ -142,6 +156,7 @@ header, footer {
   border-radius: 20px;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .button.button-add {
@@ -272,8 +287,7 @@ header, footer {
 /* End camera settings list */
 .app-container {
   margin: 0 auto;
-  max-width: 1440px;
-  width: 1440px;
+  min-width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,9 +295,10 @@ header, footer {
 }
 
 .left-content-section {
-  width: 320px;
+  min-width: 320px;
   background: #F7F7F7;
   position: relative;
+  padding-bottom: 210px;
 }
 
 .left-content-section .add-camera {
@@ -296,14 +311,14 @@ header, footer {
 }
 
 .app-content-section {
-  width: 1060px;
+  width: 100%;
   padding: 0 30px 0 30px;
 }
 
 /* camera list section */
 .cams-list .scroll-container {
   overflow: auto;
-  max-height: 780px;
+  max-height: 630px;
 }
 
 .cams-list .cams-list-title {
@@ -311,6 +326,7 @@ header, footer {
   font-size: 24px;
   line-height: 24px;
   padding: 14px 0 16px 0;
+  color: rgba(0, 0, 0, 0.56);
 }
 
 .cams-list .cams-list-item {
@@ -325,7 +341,6 @@ header, footer {
 
 .cams-list .cams-list-item.active {
   background: #ffffff;
-  border-left: 1px solid #EBEBEB;
   border-right: 1px solid #EBEBEB;
 }
 
@@ -344,10 +359,7 @@ header, footer {
   background-color: #EBEBEB;
   border-radius: 4px;
   margin: 5px 14px 0 0;
-}
-
-.cams-list .camera-preview img {
-  max-height: 61px;
+  overflow: hidden;
 }
 
 .cams-list .camera-info-container {
@@ -395,7 +407,7 @@ header, footer {
 
 .thumbnails-list .thumbnails-list-item {
   padding: 7px 7.5px 7px 7.5px;
-  width: 200px;
+  width: 215px;
   margin-bottom: 20px;
   cursor: pointer;
 }
@@ -413,6 +425,7 @@ header, footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
 }
 
 .thumbnails-list .thumbnails-list-item .item-preview img {
@@ -429,11 +442,23 @@ header, footer {
           justify-content: space-between;
 }
 
+.thumbnails-list .thumbnails-list-item.active {
+  background: #828282;
+}
+
+.thumbnails-list .thumbnails-list-item.active .info {
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.thumbnails-list .thumbnails-list-item.active .tool-button-delete-svg svg path {
+  fill: rgba(0, 0, 0, 0.56);
+}
+
 /* End thumbnails list */
 /* camera form */
 .camera-form {
   width: 550px;
-  margin: 15px auto 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .camera-form .field-item {
@@ -446,6 +471,10 @@ header, footer {
 
 .camera-form form.create-clip-form {
   margin-top: 32px;
+}
+
+.camera-form form.create-clip-form .camera-form-buttons {
+  margin-top: 22px;
 }
 
 .camera-form .camera-form-three-inputs {
@@ -463,11 +492,11 @@ header, footer {
 }
 
 .camera-form .camera-settings-list {
-  margin-top: 20px;
+  margin: 20px 0 20px 0;
 }
 
 .camera-form .camera-form-buttons {
-  margin-top: 68px;
+  margin-top: 48px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -493,6 +522,9 @@ header, footer {
 
 .camera-form .camera-form-two-columns .camera-form-column {
   margin-left: 22px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .camera-form .camera-form-two-columns .camera-form-column:first-child {
@@ -663,13 +695,10 @@ header, footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .thumbnails-section .thumbnails-path-container {
-  width: 150px;
+  min-width: 150px;
 }
 
 .thumbnails-section .path-list {
@@ -699,9 +728,12 @@ header, footer {
   margin-top: 0;
 }
 
+.thumbnails-section .path-list .path-item.active::before {
+  background: url(../img/folder-open.svg) no-repeat left top;
+}
+
 .thumbnails-section .thumbnails-list {
-  margin: 34px 0 0 15px;
-  width: 800px;
+  margin: 34px 0 0 58px;
 }
 
 .recorded-clips-section .recorded-clips-title-container {
@@ -718,5 +750,199 @@ header, footer {
 
 .recorded-clips-section .thumbnails-list {
   margin-top: 12px;
+}
+
+.popup-overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: auto;
+}
+
+@media only screen and (max-height: 800px) {
+  .popup-overlay {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding: 40px 0 40px 0;
+  }
+}
+
+.popup {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2), 0px 24px 38px rgba(0, 0, 0, 0.14);
+          box-shadow: 0px 11px 15px rgba(0, 0, 0, 0.2), 0px 24px 38px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  position: relative;
+}
+
+.popup .popup-close {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.popup .popup-close:after, .popup .popup-close:before {
+  content: '';
+  position: absolute;
+  border-radius: 5px;
+  background: #C4C4C4;
+  height: 42px;
+  width: 4px;
+  top: 0;
+  left: 18px;
+}
+
+.popup .popup-close:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.popup .popup-close:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.popup.popup-big {
+  padding: 54px 34px 68px 34px;
+}
+
+.popup.popup-big .popup-close {
+  top: 12px;
+  right: 19px;
+}
+
+.popup.popup-small {
+  padding: 20px 64px 22px 64px;
+}
+
+.popup.popup-small .popup-close {
+  top: 12px;
+  right: 15px;
+  height: 28px;
+  width: 28px;
+}
+
+.popup.popup-small .popup-close:after, .popup.popup-small .popup-close:before {
+  content: '';
+  height: 28px;
+  width: 3px;
+  left: 18px;
+}
+
+.popup .popup-item-info {
+  margin: 17px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.popup .popup-item-info p {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #828282;
+  margin: 4px 0 0 0;
+}
+
+.popup .popup-slider {
+  width: 1115px;
+  position: relative;
+}
+
+.popup .popup-slider .slider-content {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.popup .popup-slider .slider-item {
+  width: 960px;
+}
+
+.popup .popup-slider .slider-item-image {
+  width: 960px;
+  height: 540px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.popup .popup-slider .prev, .popup .popup-slider .next {
+  width: 43px;
+  height: 115px;
+  position: absolute;
+  top: 204px;
+  cursor: pointer;
+}
+
+.popup .popup-slider .prev {
+  background: url(../img/popup-slider-prev.svg) no-repeat left center;
+  background-size: contain;
+  left: 0;
+}
+
+.popup .popup-slider .next {
+  background: url(../img/popup-slider-next.svg) no-repeat right center;
+  background-size: contain;
+  right: 0;
+}
+
+.popup .popup-slider .popup-item-info .button {
+  width: 160px;
+  height: 50px;
+}
+
+.popup .popup-video {
+  width: 832px;
+  margin: 0 auto;
+}
+
+.popup .popup-video .video-container {
+  overflow: hidden;
+  width: 832px;
+  height: 560px;
+  margin: 0 auto;
+}
+
+.popup .popup-video .popup-item-info {
+  margin: 15px 0 0 0;
+}
+
+.popup .popup-video .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.popup .popup-video .buttons .button {
+  margin-left: 29px;
+}
+
+.popup .popup-video .buttons .button:first-child {
+  margin-left: 0;
+}
+
+.popup .popup-video .buttons .video-delete {
+  width: 140px;
+}
+
+.popup .popup-video .buttons .video-download {
+  width: 130px;
 }
 /*# sourceMappingURL=style.css.map */
